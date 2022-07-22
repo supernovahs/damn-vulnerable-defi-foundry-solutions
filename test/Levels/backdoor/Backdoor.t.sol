@@ -72,9 +72,12 @@ contract Backdoor is Test {
 
     function testExploit() public {
         /** EXPLOIT START **/
+        walletRegistry.addBeneficiary(attacker);
+        bool a = walletRegistry.beneficiaries(attacker);
+        assertTrue(a);
 
         /** EXPLOIT END **/
-        validation();
+        // validation();
     }
 
     function validation() internal {
